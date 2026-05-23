@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *:focus-visible {
+    outline: 2px solid #7ebc6f;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: #7ebc6f;
+    color: #ffffff;
+  }
+}
+
+::view-transition-old(root) {
+  animation: none;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 500ms ease-in both;
+  z-index: 9999;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--theme-x, 100%) var(--theme-y, 0));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0));
+  }
+}
