@@ -126,6 +126,7 @@ const toggleTheme = () => {
           <a href="https://t.me/OpenStreetMapAsia" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Telegram</a>
         </p>
         <p class="text-gray-400 dark:text-gray-600">{{ t('footer.disclaimer') }}</p>
+        <p class="text-gray-400 dark:text-gray-600">{{ t('footer.copyright') }}</p>
       </div>
     </footer>
   </div>

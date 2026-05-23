@@ -19,6 +19,15 @@ const featured = [
     url: 'https://pan.qzyun.net/f/Y16DiR/china-260522.osm.pbf'
   },
   {
+    id: 'asia',
+    title: 'Asia',
+    subtitle: '亚洲地区',
+    size: '14.7 GB',
+    date: '2026-05-22',
+    continent: 'asia',
+    url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-Z0Oy3'
+  },
+  {
     id: 'australia-oceania',
     title: 'Australia-Oceania',
     subtitle: '澳大利亚 / 大洋洲',
@@ -86,7 +95,7 @@ const totalCount = computed(() => filteredFeatured.value.length + filteredRegion
       </button>
     </div>
 
-    <div v-if="filteredFeatured.length" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+    <div v-if="filteredFeatured.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       <a
         v-for="item in filteredFeatured"
         :key="item.id"

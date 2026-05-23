@@ -33,7 +33,7 @@ const msgs = {
       america: '美洲', global: '全球', other: '其他'
     },
     links: { title: '相关链接' },
-    footer: { disclaimer: '这不是 OSM 官方网站 · 仅供镜像下载使用' }
+    footer: { disclaimer: '这不是 OSM 官方网站 · 仅供镜像下载使用', copyright: '地图数据 © OpenStreetMap 贡献者，基于 ODbL 协议' }
   },
   'zh-TW': {
     site: { subtitle: 'OpenStreetMap 亞洲鏡像下載站' },
@@ -55,7 +55,7 @@ const msgs = {
       america: '美洲', global: '全球', other: '其他'
     },
     links: { title: '相關連結' },
-    footer: { disclaimer: '這不是 OSM 官方網站 · 僅供鏡像下載使用' }
+    footer: { disclaimer: '這不是 OSM 官方網站 · 僅供鏡像下載使用', copyright: '地圖資料 © OpenStreetMap 貢獻者，基於 ODbL 協議' }
   },
   ja: {
     site: { subtitle: 'OpenStreetMap アジアミラー' },
@@ -77,7 +77,7 @@ const msgs = {
       america: 'アメリカ', global: 'グローバル', other: 'その他'
     },
     links: { title: 'リンク' },
-    footer: { disclaimer: 'OSM 公式サイトではありません · ミラーダウンロード専用' }
+    footer: { disclaimer: 'OSM 公式サイトではありません · ミラーダウンロード専用', copyright: 'データ © OpenStreetMap contributors, ODbL' }
   },
   ko: {
     site: { subtitle: 'OpenStreetMap 아시아 미러' },
@@ -99,7 +99,7 @@ const msgs = {
       america: '아메리카', global: '글로벌', other: '기타'
     },
     links: { title: '링크' },
-    footer: { disclaimer: 'OSM 공식 웹사이트가 아닙니다 · 미러 다운로드 전용' }
+    footer: { disclaimer: 'OSM 공식 웹사이트가 아닙니다 · 미러 다운로드 전용', copyright: '데이터 © OpenStreetMap contributors, ODbL' }
   },
   en: {
     site: { subtitle: 'OpenStreetMap Asia Mirror' },
@@ -121,7 +121,7 @@ const msgs = {
       america: 'Americas', global: 'Global', other: 'Other'
     },
     links: { title: 'Links' },
-    footer: { disclaimer: 'Not an official OSM website · Mirror downloads only' }
+    footer: { disclaimer: 'Not an official OSM website · Mirror downloads only', copyright: 'Data © OpenStreetMap contributors, ODbL' }
   },
   my: {
     site: { subtitle: 'OpenStreetMap အာရှ မိတ္တူ' },
@@ -143,7 +143,7 @@ const msgs = {
       america: 'အမေရိက', global: 'ကမ္ဘာလုံး', other: 'အခြား'
     },
     links: { title: 'လင့်ခ်များ' },
-    footer: { disclaimer: 'OSM တရားဝင်ဝက်ဘ်ဆိုက်မဟုတ်ပါ · မိတ္တူဒေါင်းလုဒ်အတွက်သာ' }
+    footer: { disclaimer: 'OSM တရားဝင်ဝက်ဘ်ဆိုက်မဟုတ်ပါ · မိတ္တူဒေါင်းလုဒ်အတွက်သာ', copyright: 'ဒေတာ © OpenStreetMap contributors, ODbL' }
   },
   eo: {
     site: { subtitle: 'OpenStreetMap Azia Spegulo' },
@@ -165,7 +165,7 @@ const msgs = {
       america: 'Ameriko', global: 'Tutmonda', other: 'Aliaj'
     },
     links: { title: 'Ligiloj' },
-    footer: { disclaimer: 'Ne oficiala OSM retejo · Nur spegula elŝuto' }
+    footer: { disclaimer: 'Ne oficiala OSM retejo · Nur spegula elŝuto', copyright: 'Datumoj © OpenStreetMap contributors, ODbL' }
   }
 }
 
