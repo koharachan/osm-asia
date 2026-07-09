@@ -51,6 +51,21 @@ const chinaRegionNames = {
     hainan: '海南',
     gansu: '甘肃',
     guangdong: '广东',
+    changping: '昌平',
+    chaoyang: '朝阳',
+    daxing: '大兴',
+    fangshan: '房山',
+    dongcheng: '东城',
+    fengtai: '丰台',
+    miyun: '密云',
+    huairou: '怀柔',
+    haidian: '海淀',
+    mentougou: '门头沟',
+    pinggu: '平谷',
+    shijingshan: '石景山',
+    shunyi: '顺义',
+    tongzhou: '通州',
+    yanqing: '延庆',
     ziyang: '资阳',
     zigong: '自贡',
     yibin: '宜宾',
@@ -104,6 +119,21 @@ const chinaRegionNames = {
     hainan: '海南',
     gansu: '甘肅',
     guangdong: '廣東',
+    changping: '昌平',
+    chaoyang: '朝陽',
+    daxing: '大興',
+    fangshan: '房山',
+    dongcheng: '東城',
+    fengtai: '豐台',
+    miyun: '密雲',
+    huairou: '懷柔',
+    haidian: '海淀',
+    mentougou: '門頭溝',
+    pinggu: '平谷',
+    shijingshan: '石景山',
+    shunyi: '順義',
+    tongzhou: '通州',
+    yanqing: '延慶',
     ziyang: '資陽',
     zigong: '自貢',
     yibin: '宜賓',
@@ -157,6 +187,21 @@ const chinaRegionNames = {
     hainan: 'Hainan',
     gansu: 'Gansu',
     guangdong: 'Guangdong',
+    changping: 'Changping',
+    chaoyang: 'Chaoyang',
+    daxing: 'Daxing',
+    fangshan: 'Fangshan',
+    dongcheng: 'Dongcheng',
+    fengtai: 'Fengtai',
+    miyun: 'Miyun',
+    huairou: 'Huairou',
+    haidian: 'Haidian',
+    mentougou: 'Mentougou',
+    pinggu: 'Pinggu',
+    shijingshan: 'Shijingshan',
+    shunyi: 'Shunyi',
+    tongzhou: 'Tongzhou',
+    yanqing: 'Yanqing',
     ziyang: 'Ziyang',
     zigong: 'Zigong',
     yibin: 'Yibin',
@@ -201,6 +246,24 @@ const sichuanCityIds = [
   'chengdu'
 ]
 
+const beijingDistrictIds = [
+  'changping',
+  'chaoyang',
+  'daxing',
+  'fangshan',
+  'dongcheng',
+  'fengtai',
+  'miyun',
+  'huairou',
+  'haidian',
+  'mentougou',
+  'pinggu',
+  'shijingshan',
+  'shunyi',
+  'tongzhou',
+  'yanqing'
+]
+
 const chinaRegionSubtitles = {
   'zh-CN': '中国区域 PBF',
   'zh-TW': '中國區域 PBF',
@@ -223,15 +286,28 @@ const sichuanCitySubtitles = {
   eo: 'Urbonivela PBF por Siĉuano'
 }
 
+const beijingDistrictSubtitles = {
+  'zh-CN': '北京区级 PBF',
+  'zh-TW': '北京區級 PBF',
+  ja: '北京市の区級 PBF',
+  ko: '베이징 구급 PBF',
+  en: 'Beijing district-level PBF',
+  de: 'PBF auf Bezirksebene in Peking',
+  my: 'Beijing district-level PBF',
+  eo: 'Distriktnivela PBF por Pekino'
+}
+
 const chinaRegions = (locale) => Object.fromEntries(
   Object.entries(chinaRegionNames[locale] || chinaRegionNames.en)
     .map(([id, name]) => [
       id,
       {
         name,
-        subtitle: sichuanCityIds.includes(id)
-          ? sichuanCitySubtitles[locale] || sichuanCitySubtitles.en
-          : chinaRegionSubtitles[locale] || chinaRegionSubtitles.en
+        subtitle: beijingDistrictIds.includes(id)
+          ? beijingDistrictSubtitles[locale] || beijingDistrictSubtitles.en
+          : sichuanCityIds.includes(id)
+            ? sichuanCitySubtitles[locale] || sichuanCitySubtitles.en
+            : chinaRegionSubtitles[locale] || chinaRegionSubtitles.en
       }
     ])
 )
