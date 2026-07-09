@@ -50,7 +50,26 @@ const chinaRegionNames = {
     guizhou: '贵州',
     hainan: '海南',
     gansu: '甘肃',
-    guangdong: '广东'
+    guangdong: '广东',
+    ziyang: '资阳',
+    zigong: '自贡',
+    yibin: '宜宾',
+    yaan: '雅安',
+    suining: '遂宁',
+    panzhihua: '攀枝花',
+    neijiang: '内江',
+    'ngawa-tibetan-and-qiang-autonomous': '阿坝藏族羌族自治州',
+    mianyang: '绵阳',
+    nanchong: '南充',
+    luzhou: '泸州',
+    meishan: '眉山',
+    leshan: '乐山',
+    guangyuan: '广元',
+    guangan: '广安',
+    deyang: '德阳',
+    dazhou: '达州',
+    bazhong: '巴中',
+    chengdu: '成都'
   },
   'zh-TW': {
     fujian: '福建',
@@ -84,7 +103,26 @@ const chinaRegionNames = {
     guizhou: '貴州',
     hainan: '海南',
     gansu: '甘肅',
-    guangdong: '廣東'
+    guangdong: '廣東',
+    ziyang: '資陽',
+    zigong: '自貢',
+    yibin: '宜賓',
+    yaan: '雅安',
+    suining: '遂寧',
+    panzhihua: '攀枝花',
+    neijiang: '內江',
+    'ngawa-tibetan-and-qiang-autonomous': '阿壩藏族羌族自治州',
+    mianyang: '綿陽',
+    nanchong: '南充',
+    luzhou: '瀘州',
+    meishan: '眉山',
+    leshan: '樂山',
+    guangyuan: '廣元',
+    guangan: '廣安',
+    deyang: '德陽',
+    dazhou: '達州',
+    bazhong: '巴中',
+    chengdu: '成都'
   },
   en: {
     fujian: 'Fujian',
@@ -118,9 +156,50 @@ const chinaRegionNames = {
     guizhou: 'Guizhou',
     hainan: 'Hainan',
     gansu: 'Gansu',
-    guangdong: 'Guangdong'
+    guangdong: 'Guangdong',
+    ziyang: 'Ziyang',
+    zigong: 'Zigong',
+    yibin: 'Yibin',
+    yaan: "Ya'an",
+    suining: 'Suining',
+    panzhihua: 'Panzhihua',
+    neijiang: 'Neijiang',
+    'ngawa-tibetan-and-qiang-autonomous': 'Ngawa Tibetan and Qiang Autonomous Prefecture',
+    mianyang: 'Mianyang',
+    nanchong: 'Nanchong',
+    luzhou: 'Luzhou',
+    meishan: 'Meishan',
+    leshan: 'Leshan',
+    guangyuan: 'Guangyuan',
+    guangan: "Guang'an",
+    deyang: 'Deyang',
+    dazhou: 'Dazhou',
+    bazhong: 'Bazhong',
+    chengdu: 'Chengdu'
   }
 }
+
+const sichuanCityIds = [
+  'ziyang',
+  'zigong',
+  'yibin',
+  'yaan',
+  'suining',
+  'panzhihua',
+  'neijiang',
+  'ngawa-tibetan-and-qiang-autonomous',
+  'mianyang',
+  'nanchong',
+  'luzhou',
+  'meishan',
+  'leshan',
+  'guangyuan',
+  'guangan',
+  'deyang',
+  'dazhou',
+  'bazhong',
+  'chengdu'
+]
 
 const chinaRegionSubtitles = {
   'zh-CN': '中国区域 PBF',
@@ -133,9 +212,28 @@ const chinaRegionSubtitles = {
   eo: 'Regiona PBF por Ĉinio'
 }
 
+const sichuanCitySubtitles = {
+  'zh-CN': '四川市级 PBF',
+  'zh-TW': '四川市級 PBF',
+  ja: '四川省の市級 PBF',
+  ko: '쓰촨 시급 PBF',
+  en: 'Sichuan city-level PBF',
+  de: 'PBF auf Stadtebene in Sichuan',
+  my: 'Sichuan city-level PBF',
+  eo: 'Urbonivela PBF por Siĉuano'
+}
+
 const chinaRegions = (locale) => Object.fromEntries(
   Object.entries(chinaRegionNames[locale] || chinaRegionNames.en)
-    .map(([id, name]) => [id, { name, subtitle: chinaRegionSubtitles[locale] || chinaRegionSubtitles.en }])
+    .map(([id, name]) => [
+      id,
+      {
+        name,
+        subtitle: sichuanCityIds.includes(id)
+          ? sichuanCitySubtitles[locale] || sichuanCitySubtitles.en
+          : chinaRegionSubtitles[locale] || chinaRegionSubtitles.en
+      }
+    ])
 )
 
 const msgs = {
