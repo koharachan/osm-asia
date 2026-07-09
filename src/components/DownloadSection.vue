@@ -5,135 +5,250 @@ import { useI18n } from '../i18n.js'
 const { t } = useI18n()
 
 const continentKeys = ['all', 'asia', 'oceania', 'america', 'global', 'other']
-
 const activeContinent = ref('all')
 
-const featured = [
-  {
-    id: 'china',
-    title: 'China',
-    subtitle: '中国',
-    size: '1.2 GB',
-    date: '2026-05-22',
-    continent: 'asia',
-    url: 'https://pan.qzyun.net/f/Y16DiR/china-260522.osm.pbf'
-  },
+const downloads = [
   {
     id: 'asia',
-    title: 'Asia',
-    subtitle: '亚洲地区',
-    size: '14.7 GB',
-    date: '2026-05-22',
     continent: 'asia',
-    url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-Z0Oy3'
+    accent: 'border-primary',
+    featured: true,
+    versions: [
+      {
+        label: '2026-07-08',
+        file: 'asia-260708.osm.pbf',
+        size: '15+ GB',
+        source: '123盘',
+        sourceKind: '123pan',
+        url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-lzPy3'
+      },
+      {
+        label: '2026-05-22',
+        file: 'asia-260522.osm.pbf',
+        size: '14.7 GB',
+        source: '123盘',
+        sourceKind: '123pan',
+        url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-Z0Oy3'
+      }
+    ]
+  },
+  {
+    id: 'china',
+    continent: 'asia',
+    accent: 'border-lime-500',
+    versions: [
+      {
+        label: '2026-07-08',
+        file: 'china-260708.osm.pbf',
+        size: '1.56 GB',
+        source: '123盘',
+        sourceKind: '123pan',
+        url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-EU1V3'
+      },
+      {
+        label: '2026-05-22',
+        file: 'china-260522.osm.pbf',
+        size: '1.2 GB',
+        source: '直链',
+        sourceKind: 'direct',
+        url: 'https://pan.qzyun.net/f/Y16DiR/china-260522.osm.pbf'
+      }
+    ]
   },
   {
     id: 'australia-oceania',
-    title: 'Australia-Oceania',
-    subtitle: '澳大利亚 / 大洋洲',
-    size: '1.1 GB',
-    date: '2026-05-22',
     continent: 'oceania',
-    url: 'https://pan.qzyun.net/f/n094Sx/australia-oceania-260522.osm.pbf'
+    accent: 'border-amber-500',
+    versions: [
+      {
+        label: '2026-05-22',
+        file: 'australia-oceania-260522.osm.pbf',
+        size: '1.1 GB',
+        source: '直链',
+        sourceKind: 'direct',
+        url: 'https://pan.qzyun.net/f/n094Sx/australia-oceania-260522.osm.pbf'
+      }
+    ]
   },
   {
     id: 'planet',
-    title: 'Planet PBF',
-    subtitle: '全球完整数据包',
-    size: '86.23 GB',
-    date: '2026-04-27',
     continent: 'global',
-    url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-riPy3'
+    accent: 'border-indigo-500',
+    versions: [
+      {
+        label: '2026-04-27',
+        file: 'planet-260427.osm.pbf',
+        size: '86.23 GB',
+        source: '123盘',
+        sourceKind: '123pan',
+        url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-riPy3'
+      }
+    ]
   }
 ]
 
 const regions = [
-  { id: 'hongkong',      title: 'Hong Kong',       subtitle: '香港',          continent: 'asia',     date: '2026-05-12', url: 'https://pan.qzyun.net/f/g05NFk/hong-kong-260512.osm.pbf' },
-  { id: 'newyork',       title: 'New York',         subtitle: '美国纽约州',     continent: 'america',  date: '2026-05-12', url: 'https://pan.qzyun.net/f/lM31iP/new-york-260512.osm.pbf' },
-  { id: 'pennsylvania',  title: 'Pennsylvania',     subtitle: '美国宾夕法尼亚州', continent: 'america',  date: '2026-05-12', url: 'https://pan.qzyun.net/f/3z61cm/pennsylvania-260512.osm.pbf' },
-  { id: 'canada',        title: 'Canada',           subtitle: '加拿大',         continent: 'america',  date: '2026-05-12', url: 'https://pan.qzyun.net/f/pPvKce/canada-260512.osm.pbf' },
-  { id: 'mexico',        title: 'Mexico',           subtitle: '墨西哥',         continent: 'america',  date: '2026-05-12', url: 'https://pan.qzyun.net/f/546DfR/mexico-260512.osm.pbf' },
-  { id: 'greenland',     title: 'Greenland',        subtitle: '格陵兰岛',       continent: 'america',  date: '2026-05-12', url: 'https://pan.qzyun.net/f/yNrJTy/greenland-260512.osm.pbf' },
-  { id: 'antarctica',    title: 'Antarctica',       subtitle: '南极洲',         continent: 'other',    date: '2026-05-12', url: 'https://pan.qzyun.net/f/wwB5UR/antarctica-260512.osm.pbf' }
+  { id: 'hongkong', continent: 'asia', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/g05NFk/hong-kong-260512.osm.pbf' }] },
+  { id: 'newyork', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/lM31iP/new-york-260512.osm.pbf' }] },
+  { id: 'pennsylvania', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/3z61cm/pennsylvania-260512.osm.pbf' }] },
+  { id: 'canada', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/pPvKce/canada-260512.osm.pbf' }] },
+  { id: 'mexico', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/546DfR/mexico-260512.osm.pbf' }] },
+  { id: 'greenland', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/yNrJTy/greenland-260512.osm.pbf' }] },
+  { id: 'antarctica', continent: 'other', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/wwB5UR/antarctica-260512.osm.pbf' }] }
 ]
 
-const filteredFeatured = computed(() => {
-  if (activeContinent.value === 'all') return featured
-  return featured.filter(f => f.continent === activeContinent.value)
+const latestVersion = (item) => item.versions[0]
+const historyVersions = (item) => item.versions.slice(1)
+const datasetName = (item) => t(`datasets.${item.id}.name`)
+const datasetSubtitle = (item) => t(`datasets.${item.id}.subtitle`)
+const regionName = (item) => t(`regions.${item.id}.name`)
+const regionSubtitle = (item) => t(`regions.${item.id}.subtitle`)
+const sourceClass = (version) => version.sourceKind === '123pan'
+  ? 'bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-300 dark:ring-emerald-800'
+  : version.sourceKind === 'direct'
+    ? 'bg-sky-50 text-sky-700 ring-sky-200 dark:bg-sky-950/50 dark:text-sky-300 dark:ring-sky-800'
+  : 'bg-gray-100 text-gray-500 ring-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:ring-gray-700'
+
+const filteredDownloads = computed(() => {
+  if (activeContinent.value === 'all') return downloads
+  return downloads.filter((item) => item.continent === activeContinent.value)
 })
 
 const filteredRegions = computed(() => {
   if (activeContinent.value === 'all') return regions
-  return regions.filter(r => r.continent === activeContinent.value)
+  return regions.filter((item) => item.continent === activeContinent.value)
 })
 
-const totalCount = computed(() => filteredFeatured.value.length + filteredRegions.value.length)
+const totalCount = computed(() => filteredDownloads.value.length + filteredRegions.value.length)
 </script>
 
 <template>
-  <section class="mb-12">
-    <div class="flex items-center justify-between mb-6">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-        {{ t('download.title') }}
-        <span class="ml-2 text-sm font-normal text-gray-400 dark:text-gray-500">{{ totalCount }}{{ t('download.count') }}</span>
-      </h3>
+  <section class="mb-14">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6">
+      <div>
+        <p class="text-sm font-semibold text-primary mb-2">{{ t('download.eyebrow') }}</p>
+        <h3 class="text-2xl font-bold text-gray-950 dark:text-white">
+          {{ t('download.title') }}
+          <span class="ml-2 text-base font-normal text-gray-400 dark:text-gray-500">{{ totalCount }}{{ t('download.count') }}</span>
+        </h3>
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">{{ t('download.helper') }}</p>
+      </div>
+
+      <div class="inline-flex flex-wrap gap-1 rounded-xl border border-gray-200 bg-white p-1 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+        <button
+          v-for="key in continentKeys"
+          :key="key"
+          @click="activeContinent = key"
+          :class="[
+            'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
+            activeContinent === key
+              ? 'bg-gray-950 text-white dark:bg-white dark:text-gray-950'
+              : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white'
+          ]"
+        >
+          {{ t(`continents.${key}`) }}
+        </button>
+      </div>
     </div>
 
-    <div class="flex gap-1.5 mb-6 flex-wrap">
-      <button
-        v-for="key in continentKeys"
-        :key="key"
-        @click="activeContinent = key"
+    <div v-if="filteredDownloads.length" class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+      <article
+        v-for="item in filteredDownloads"
+        :key="item.id"
         :class="[
-          'px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors',
-          activeContinent === key
-            ? 'bg-primary text-white'
-            : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+          'rounded-lg border bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:bg-gray-900 dark:border-gray-800',
+          item.accent,
+          item.featured ? 'lg:col-span-2 ring-1 ring-primary/30' : ''
         ]"
       >
-        {{ t(`continents.${key}`) }}
-      </button>
-    </div>
-
-    <div v-if="filteredFeatured.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      <a
-        v-for="item in filteredFeatured"
-        :key="item.id"
-        :href="item.url"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-colors hover:border-primary p-5 group cursor-pointer no-underline"
-      >
-        <div class="flex items-start justify-between mb-3">
+        <div class="flex items-start justify-between gap-4">
           <div class="min-w-0">
-            <h4 class="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">{{ item.title }}</h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400">{{ item.subtitle }}</p>
+            <p
+              :class="[
+                'inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset',
+                sourceClass(latestVersion(item))
+              ]"
+            >
+              {{ latestVersion(item).source }}
+            </p>
+            <h4 class="mt-1 text-xl font-bold text-gray-950 dark:text-white">{{ datasetName(item) }}</h4>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ datasetSubtitle(item) }}</p>
           </div>
-          <span class="rounded-md bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 whitespace-nowrap flex-shrink-0 ml-2">{{ item.size }}</span>
+          <span class="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-700 dark:bg-gray-800 dark:text-gray-200">
+            {{ latestVersion(item).size }}
+          </span>
         </div>
-        <p class="text-xs text-gray-400 dark:text-gray-500 mb-4">{{ t('download.updated') }} {{ item.date }}</p>
-        <span class="inline-flex items-center gap-2 px-5 py-2 rounded-xl font-medium text-white bg-primary hover:shadow-lg transition-all text-sm">
-          {{ t('download.download') }}
-        </span>
-      </a>
+
+        <div class="mt-5 rounded-md bg-gray-50 px-3 py-2 text-sm text-gray-600 dark:bg-gray-800/70 dark:text-gray-300">
+          <div class="font-medium text-gray-900 dark:text-white">{{ latestVersion(item).file }}</div>
+          <div>{{ t('download.updated') }} {{ latestVersion(item).label }}</div>
+        </div>
+
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <a
+            :href="latestVersion(item).url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-95"
+          >
+            <span aria-hidden="true">↓</span>
+            {{ t('download.downloadLatest') }}
+          </a>
+
+          <div v-if="historyVersions(item).length" class="flex flex-wrap items-center gap-2 text-sm">
+            <span class="text-gray-400 dark:text-gray-500">{{ t('download.history') }}</span>
+            <a
+              v-for="version in historyVersions(item)"
+              :key="version.file"
+              :href="version.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-md border border-gray-200 px-2.5 py-1 font-medium text-gray-600 transition hover:border-primary hover:text-primary dark:border-gray-700 dark:text-gray-300"
+            >
+              {{ version.label }}
+            </a>
+          </div>
+        </div>
+      </article>
     </div>
 
-    <div v-if="filteredRegions.length" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-      <a
-        v-for="item in filteredRegions"
-        :key="item.id"
-        :href="item.url"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-colors hover:border-primary p-4 group cursor-pointer no-underline"
-      >
-        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-0.5">{{ item.title }}</h4>
-        <p class="text-xs text-gray-500 dark:text-gray-500 mb-2">{{ item.subtitle }}</p>
-        <p class="text-xs text-gray-400 dark:text-gray-600">{{ t('download.updated') }} {{ item.date }}</p>
-      </a>
+    <div v-if="filteredRegions.length" class="rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
+      <div class="border-b border-gray-200 px-4 py-3 dark:border-gray-800">
+        <h4 class="font-semibold text-gray-950 dark:text-white">{{ t('download.regions') }}</h4>
+      </div>
+      <div class="divide-y divide-gray-100 dark:divide-gray-800">
+        <a
+          v-for="item in filteredRegions"
+          :key="item.id"
+          :href="latestVersion(item).url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="grid grid-cols-[1fr_auto] gap-4 px-4 py-3 transition hover:bg-gray-50 dark:hover:bg-gray-800/70"
+        >
+          <span>
+            <span class="block text-sm font-semibold text-gray-900 dark:text-white">{{ regionName(item) }}</span>
+            <span class="block text-xs text-gray-500 dark:text-gray-400">{{ regionSubtitle(item) }} · {{ t('download.updated') }} {{ latestVersion(item).label }}</span>
+            <span v-if="historyVersions(item).length" class="mt-1 flex flex-wrap gap-2 text-xs">
+              <span class="text-gray-400 dark:text-gray-500">{{ t('download.history') }}</span>
+              <a
+                v-for="version in historyVersions(item)"
+                :key="version.label"
+                :href="version.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold text-primary hover:underline"
+                @click.stop
+              >
+                {{ version.label }}
+              </a>
+            </span>
+          </span>
+          <span class="self-center text-sm font-semibold text-primary">{{ t('download.download') }}</span>
+        </a>
+      </div>
     </div>
 
-    <p v-if="totalCount === 0" class="text-center text-gray-400 dark:text-gray-500 py-12 text-sm">
+    <p v-if="totalCount === 0" class="py-12 text-center text-sm text-gray-400 dark:text-gray-500">
       {{ t('download.empty') }}
     </p>
   </section>
