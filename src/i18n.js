@@ -18,6 +18,8 @@ const baseDownload = {
   searchLabel: 'Search downloads',
   searchPlaceholder: 'Search city, province, file name, or link',
   clearSearch: 'Clear search',
+  sortLabel: 'Sort downloads',
+  sortOptions: { default: 'Default order', nameAsc: 'Name A-Z', sizeDesc: 'Largest first', sizeAsc: 'Smallest first' },
   typeLabels: { all: 'All files', datasets: 'Main packs', regions: 'Regional files' }
 }
 
@@ -292,6 +294,7 @@ const chinaRegionNames = {
     chizhou: '池州',
     bozhou: '亳州',
     bengbu: '蚌埠',
+    anqing: '安庆',
     zhoushan: '舟山',
     wenzhou: '温州',
     quzhou: '衢州',
@@ -301,6 +304,8 @@ const chinaRegionNames = {
     jinhua: '金华',
     jiaxing: '嘉兴',
     lishui: '丽水',
+    hangzhou: '杭州',
+    huzhou: '湖州',
     zhaotong: '昭通',
     yuxi: '玉溪',
     xishuangbanna: '西双版纳傣族自治州',
@@ -700,6 +705,7 @@ const chinaRegionNames = {
     chizhou: '池州',
     bozhou: '亳州',
     bengbu: '蚌埠',
+    anqing: '安慶',
     zhoushan: '舟山',
     wenzhou: '溫州',
     quzhou: '衢州',
@@ -709,6 +715,8 @@ const chinaRegionNames = {
     jinhua: '金華',
     jiaxing: '嘉興',
     lishui: '麗水',
+    hangzhou: '杭州',
+    huzhou: '湖州',
     zhaotong: '昭通',
     yuxi: '玉溪',
     xishuangbanna: '西雙版納傣族自治州',
@@ -1108,6 +1116,7 @@ const chinaRegionNames = {
     chizhou: 'Chizhou',
     bozhou: 'Bozhou',
     bengbu: 'Bengbu',
+    anqing: 'Anqing',
     zhoushan: 'Zhoushan',
     wenzhou: 'Wenzhou',
     quzhou: 'Quzhou',
@@ -1117,6 +1126,8 @@ const chinaRegionNames = {
     jinhua: 'Jinhua',
     jiaxing: 'Jiaxing',
     lishui: 'Lishui',
+    hangzhou: 'Hangzhou',
+    huzhou: 'Huzhou',
     zhaotong: 'Zhaotong',
     yuxi: 'Yuxi',
     xishuangbanna: 'Xishuangbanna Dai Autonomous Prefecture',
@@ -1324,7 +1335,8 @@ const beijingDistrictIds = [
   'shijingshan',
   'shunyi',
   'tongzhou',
-  'yanqing'
+  'yanqing',
+  'xicheng'
 ]
 
 const fujianCityIds = [
@@ -2161,6 +2173,8 @@ const msgs = {
       searchLabel: '搜索下载',
       searchPlaceholder: '搜索城市、省份、文件名或链接',
       clearSearch: '清空搜索',
+      sortLabel: '排序下载',
+      sortOptions: { default: '默认排序', nameAsc: '名称 A-Z', sizeDesc: '大小从大到小', sizeAsc: '大小从小到大' },
       typeLabels: { all: '全部文件', datasets: '主数据包', regions: '地区文件' }
     },
     continents: { all: '全部', asia: '亚洲', oceania: '大洋洲', america: '美洲', global: '全球', other: '其他' },
@@ -2211,6 +2225,8 @@ const msgs = {
       searchLabel: '搜尋下載',
       searchPlaceholder: '搜尋城市、省份、檔名或連結',
       clearSearch: '清空搜尋',
+      sortLabel: '排序下載',
+      sortOptions: { default: '預設排序', nameAsc: '名稱 A-Z', sizeDesc: '大小由大到小', sizeAsc: '大小由小到大' },
       typeLabels: { all: '全部檔案', datasets: '主資料包', regions: '地區檔案' }
     },
     continents: { all: '全部', asia: '亞洲', oceania: '大洋洲', america: '美洲', global: '全球', other: '其他' },
