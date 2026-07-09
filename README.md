@@ -1,6 +1,6 @@
 # OSM.Asia
 
-OpenStreetMap 亚洲镜像下载站，提供快速、稳定的全球 OSM 数据镜像。
+OpenStreetMap 镜像下载站，提供快速、稳定的全球 OSM 数据镜像。
 
 站点：https://osm.asia/
 仓库：https://github.com/koharachan/osm-asia
