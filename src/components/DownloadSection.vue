@@ -84,6 +84,14 @@ const downloads = [
     accent: 'border-indigo-500',
     versions: [
       {
+        label: '2026-06-29',
+        file: 'planet-260629.osm.pbf',
+        size: '86+ GB',
+        source: '123盘',
+        sourceKind: '123pan',
+        url: 'https://1851405391.share.123pan.cn/123pan/f9Bavd-7zPy3'
+      },
+      {
         label: '2026-04-27',
         file: 'planet-260427.osm.pbf',
         size: '86.23 GB',
