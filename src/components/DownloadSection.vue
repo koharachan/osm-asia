@@ -6,6 +6,7 @@ const { t } = useI18n()
 
 const continentKeys = ['all', 'asia', 'oceania', 'america', 'global', 'other']
 const activeContinent = ref('all')
+const directSource = { source: '直链', sourceKind: 'direct' }
 
 const downloads = [
   {
@@ -88,13 +89,45 @@ const downloads = [
 ]
 
 const regions = [
-  { id: 'hongkong', continent: 'asia', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/g05NFk/hong-kong-260512.osm.pbf' }] },
-  { id: 'newyork', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/lM31iP/new-york-260512.osm.pbf' }] },
-  { id: 'pennsylvania', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/3z61cm/pennsylvania-260512.osm.pbf' }] },
-  { id: 'canada', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/pPvKce/canada-260512.osm.pbf' }] },
-  { id: 'mexico', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/546DfR/mexico-260512.osm.pbf' }] },
-  { id: 'greenland', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/yNrJTy/greenland-260512.osm.pbf' }] },
-  { id: 'antarctica', continent: 'other', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/wwB5UR/antarctica-260512.osm.pbf' }] }
+  { id: 'fujian', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/x5ljtn/fujian-latest.osm.pbf', ...directSource }] },
+  { id: 'chongqing', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/Bpl9hZ/chongqing-latest.osm.pbf', ...directSource }] },
+  { id: 'beijing', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/zXaGSw/beijing-latest.osm.pbf', ...directSource }] },
+  { id: 'anhui', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/Q5P6TX/anhui-latest.osm.pbf', ...directSource }] },
+  { id: 'zhejiang', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/y3AXiy/zhejiang-latest.osm.pbf', ...directSource }] },
+  { id: 'yunnan', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/5o5YCR/yunnan-latest.osm.pbf', ...directSource }] },
+  { id: 'xinjiang', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/AKlxfe/xinjiang-latest.osm.pbf', ...directSource }] },
+  { id: 'tibet', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/aZzyFA/tibet-latest.osm.pbf', ...directSource }] },
+  { id: 'tianjin', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/L2ayC5/tianjin-latest.osm.pbf', ...directSource }] },
+  { id: 'sichuan', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/gELOCk/sichuan-latest.osm.pbf', ...directSource }] },
+  { id: 'shanxi', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/3bjJUm/shanxi-latest.osm.pbf', ...directSource }] },
+  { id: 'shanghai', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/lKVDCP/shanghai-latest.osm.pbf', ...directSource }] },
+  { id: 'shandong', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/pQeJse/shandong-latest.osm.pbf', ...directSource }] },
+  { id: 'shaanxi', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/MJPxF0/shaanxi-latest.osm.pbf', ...directSource }] },
+  { id: 'qinghai', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/vPe1SL/qinghai-latest.osm.pbf', ...directSource }] },
+  { id: 'ningxia', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/0Le3HK/ningxia-latest.osm.pbf', ...directSource }] },
+  { id: 'macau', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/9oGNHB/macau-latest.osm.pbf', ...directSource }] },
+  { id: 'liaoning', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/oPzZHB/liaoning-latest.osm.pbf', ...directSource }] },
+  { id: 'jilin', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/EXYzUp/jilin-latest.osm.pbf', ...directSource }] },
+  { id: 'jiangxi', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/ZnvLHX/jiangxi-latest.osm.pbf', ...directSource }] },
+  { id: 'jiangsu', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/mPxpCN/jiangsu-latest.osm.pbf', ...directSource }] },
+  { id: 'inner-mongolia', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/W1vMuB/inner-mongolia-latest.osm.pbf', ...directSource }] },
+  { id: 'hunan', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/jGRDSP/hunan-latest.osm.pbf', ...directSource }] },
+  { id: 'hubei', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/eKeEiE/hubei-latest.osm.pbf', ...directSource }] },
+  { id: 'hongkong', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/1Mr3t1/hong-kong-latest.osm.pbf', ...directSource }] },
+  { id: 'henan', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/PvP6u3/henan-latest.osm.pbf', ...directSource }] },
+  { id: 'heilongjiang', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/rQvPs5/heilongjiang-latest.osm.pbf', ...directSource }] },
+  { id: 'hebei', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/6oJVSD/hebei-latest.osm.pbf', ...directSource }] },
+  { id: 'guangxi', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/J5GMtY/guangxi-latest.osm.pbf', ...directSource }] },
+  { id: 'guizhou', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/2krzUj/guizhou-latest.osm.pbf', ...directSource }] },
+  { id: 'hainan', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/wyRwcR/hainan-latest.osm.pbf', ...directSource }] },
+  { id: 'gansu', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/XXeJsO/gansu-latest.osm.pbf', ...directSource }] },
+  { id: 'guangdong', continent: 'asia', versions: [{ label: 'latest', url: 'https://pan.qzyun.net/f/bZbZIa/guangdong-latest.osm.pbf', ...directSource }] },
+  { id: 'newyork', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/lM31iP/new-york-260512.osm.pbf', ...directSource }] },
+  { id: 'pennsylvania', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/3z61cm/pennsylvania-260512.osm.pbf', ...directSource }] },
+  { id: 'canada', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/pPvKce/canada-260512.osm.pbf', ...directSource }] },
+  { id: 'mexico', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/546DfR/mexico-260512.osm.pbf', ...directSource }] },
+  { id: 'greenland', continent: 'america', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/yNrJTy/greenland-260512.osm.pbf', ...directSource }] },
+  { id: 'antarctica', continent: 'other', versions: [{ label: '2026-05-12', url: 'https://pan.qzyun.net/f/wwB5UR/antarctica-260512.osm.pbf', ...directSource }] }
 ]
 
 const latestVersion = (item) => item.versions[0]
@@ -243,7 +276,18 @@ const totalCount = computed(() => filteredDownloads.value.length + filteredRegio
               </a>
             </span>
           </span>
-          <span class="self-center text-sm font-semibold text-primary">{{ t('download.download') }}</span>
+          <span class="flex shrink-0 items-center gap-2 self-center">
+            <span
+              v-if="latestVersion(item).source"
+              :class="[
+                'rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ring-inset',
+                sourceClass(latestVersion(item))
+              ]"
+            >
+              {{ latestVersion(item).source }}
+            </span>
+            <span class="text-sm font-semibold text-primary">{{ t('download.download') }}</span>
+          </span>
         </a>
       </div>
     </div>
