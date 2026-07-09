@@ -17,6 +17,127 @@ const baseDownload = {
   eyebrow: 'Mirror Downloads'
 }
 
+const chinaRegionNames = {
+  'zh-CN': {
+    fujian: '福建',
+    chongqing: '重庆',
+    beijing: '北京',
+    anhui: '安徽',
+    zhejiang: '浙江',
+    yunnan: '云南',
+    xinjiang: '新疆',
+    tibet: '西藏',
+    tianjin: '天津',
+    sichuan: '四川',
+    shanxi: '山西',
+    shanghai: '上海',
+    shandong: '山东',
+    shaanxi: '陕西',
+    qinghai: '青海',
+    ningxia: '宁夏',
+    macau: '澳门',
+    liaoning: '辽宁',
+    jilin: '吉林',
+    jiangxi: '江西',
+    jiangsu: '江苏',
+    'inner-mongolia': '内蒙古',
+    hunan: '湖南',
+    hubei: '湖北',
+    henan: '河南',
+    heilongjiang: '黑龙江',
+    hebei: '河北',
+    guangxi: '广西',
+    guizhou: '贵州',
+    hainan: '海南',
+    gansu: '甘肃',
+    guangdong: '广东'
+  },
+  'zh-TW': {
+    fujian: '福建',
+    chongqing: '重慶',
+    beijing: '北京',
+    anhui: '安徽',
+    zhejiang: '浙江',
+    yunnan: '雲南',
+    xinjiang: '新疆',
+    tibet: '西藏',
+    tianjin: '天津',
+    sichuan: '四川',
+    shanxi: '山西',
+    shanghai: '上海',
+    shandong: '山東',
+    shaanxi: '陝西',
+    qinghai: '青海',
+    ningxia: '寧夏',
+    macau: '澳門',
+    liaoning: '遼寧',
+    jilin: '吉林',
+    jiangxi: '江西',
+    jiangsu: '江蘇',
+    'inner-mongolia': '內蒙古',
+    hunan: '湖南',
+    hubei: '湖北',
+    henan: '河南',
+    heilongjiang: '黑龍江',
+    hebei: '河北',
+    guangxi: '廣西',
+    guizhou: '貴州',
+    hainan: '海南',
+    gansu: '甘肅',
+    guangdong: '廣東'
+  },
+  en: {
+    fujian: 'Fujian',
+    chongqing: 'Chongqing',
+    beijing: 'Beijing',
+    anhui: 'Anhui',
+    zhejiang: 'Zhejiang',
+    yunnan: 'Yunnan',
+    xinjiang: 'Xinjiang',
+    tibet: 'Tibet',
+    tianjin: 'Tianjin',
+    sichuan: 'Sichuan',
+    shanxi: 'Shanxi',
+    shanghai: 'Shanghai',
+    shandong: 'Shandong',
+    shaanxi: 'Shaanxi',
+    qinghai: 'Qinghai',
+    ningxia: 'Ningxia',
+    macau: 'Macau',
+    liaoning: 'Liaoning',
+    jilin: 'Jilin',
+    jiangxi: 'Jiangxi',
+    jiangsu: 'Jiangsu',
+    'inner-mongolia': 'Inner Mongolia',
+    hunan: 'Hunan',
+    hubei: 'Hubei',
+    henan: 'Henan',
+    heilongjiang: 'Heilongjiang',
+    hebei: 'Hebei',
+    guangxi: 'Guangxi',
+    guizhou: 'Guizhou',
+    hainan: 'Hainan',
+    gansu: 'Gansu',
+    guangdong: 'Guangdong'
+  }
+}
+
+const chinaRegionSubtitles = {
+  'zh-CN': '中国区域 PBF',
+  'zh-TW': '中國區域 PBF',
+  ja: '中国地域の PBF',
+  ko: '중국 지역 PBF',
+  en: 'China regional PBF',
+  de: 'Regionales PBF für China',
+  my: 'China regional PBF',
+  eo: 'Regiona PBF por Ĉinio'
+}
+
+const chinaRegions = (locale) => Object.fromEntries(
+  Object.entries(chinaRegionNames[locale] || chinaRegionNames.en)
+    .map(([id, name]) => [id, { name, subtitle: chinaRegionSubtitles[locale] || chinaRegionSubtitles.en }])
+)
+
 const msgs = {
   'zh-CN': {
     language: { label: '语言' },
@@ -49,6 +170,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: '全球完整数据包' }
     },
     regions: {
+      ...chinaRegions('zh-CN'),
       hongkong: { name: '香港', subtitle: '中国香港' },
       newyork: { name: '纽约州', subtitle: '美国纽约州' },
       pennsylvania: { name: '宾夕法尼亚州', subtitle: '美国宾夕法尼亚州' },
@@ -94,6 +216,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: '全球完整資料包' }
     },
     regions: {
+      ...chinaRegions('zh-TW'),
       hongkong: { name: '香港', subtitle: '中國香港' },
       newyork: { name: '紐約州', subtitle: '美國紐約州' },
       pennsylvania: { name: '賓夕法尼亞州', subtitle: '美國賓夕法尼亞州' },
@@ -139,6 +262,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: '世界全体のデータパック' }
     },
     regions: {
+      ...chinaRegions('ja'),
       hongkong: { name: '香港', subtitle: '中国香港' },
       newyork: { name: 'ニューヨーク州', subtitle: '米国ニューヨーク州' },
       pennsylvania: { name: 'ペンシルベニア州', subtitle: '米国ペンシルベニア州' },
@@ -184,6 +308,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: '전 세계 전체 데이터 팩' }
     },
     regions: {
+      ...chinaRegions('ko'),
       hongkong: { name: '홍콩', subtitle: '중국 홍콩' },
       newyork: { name: '뉴욕주', subtitle: '미국 뉴욕주' },
       pennsylvania: { name: '펜실베이니아주', subtitle: '미국 펜실베이니아주' },
@@ -229,6 +354,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: 'Complete global data package' }
     },
     regions: {
+      ...chinaRegions('en'),
       hongkong: { name: 'Hong Kong', subtitle: 'Hong Kong, China' },
       newyork: { name: 'New York', subtitle: 'New York, United States' },
       pennsylvania: { name: 'Pennsylvania', subtitle: 'Pennsylvania, United States' },
@@ -274,6 +400,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: 'Vollständiges globales Datenpaket' }
     },
     regions: {
+      ...chinaRegions('de'),
       hongkong: { name: 'Hongkong', subtitle: 'Hongkong, China' },
       newyork: { name: 'New York', subtitle: 'New York, Vereinigte Staaten' },
       pennsylvania: { name: 'Pennsylvania', subtitle: 'Pennsylvania, Vereinigte Staaten' },
@@ -319,6 +446,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: 'Complete global data package' }
     },
     regions: {
+      ...chinaRegions('my'),
       hongkong: { name: 'Hong Kong', subtitle: 'Hong Kong, China' },
       newyork: { name: 'New York', subtitle: 'New York, United States' },
       pennsylvania: { name: 'Pennsylvania', subtitle: 'Pennsylvania, United States' },
@@ -364,6 +492,7 @@ const msgs = {
       planet: { name: 'Planet PBF', subtitle: 'Kompleta tutmonda datumpako' }
     },
     regions: {
+      ...chinaRegions('eo'),
       hongkong: { name: 'Honkongo', subtitle: 'Honkongo, Ĉinio' },
       newyork: { name: 'Novjorkio', subtitle: 'Novjorkio, Usono' },
       pennsylvania: { name: 'Pensilvanio', subtitle: 'Pensilvanio, Usono' },
